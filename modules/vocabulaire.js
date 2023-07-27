@@ -1,3 +1,18 @@
+export class Mot {
+    constructor(fr, jp, score)
+    {
+        this.fr = fr;
+        this.jp = jp;
+        this.score = score;
+        this.counter = 0;
+    }
+
+    getPercentage()
+    {
+        return this.counter === 0 ? -1 : this.score
+    }
+}
+
 export const vocabulaire = [
     new Mot('bleu','あおい',0),
     new Mot('rouge','あかい',0),
