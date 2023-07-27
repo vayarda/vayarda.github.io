@@ -5,15 +5,15 @@
   <title>Cours de japonais de Roberto-sensei</title>
   <link rel="stylesheet" href="style.css">
   <script type="module" src="./script.js"></script>
-  <!--<script src="script.js" defer></script>-->
+  <!-- <script src="script.js" defer></script> -->
 </head>
 <body>
   <div class="container">
     <div id="home" class="container-home">
       <div>Quelle série souhaitez-vous faire ?</div>
-      <button type="button" onClick="difficulty(20)">20 mots</button>
-      <button type="button" onClick="difficulty(50)">50 mots</button>
-      <button type="button" onClick="difficulty(100)">100 mots</button>
+      <button type="button" id="difficulty-20">20 mots</button>
+      <button type="button" id="difficulty-50">50 mots</button>
+      <button type="button" id="difficulty-100">100 mots</button>
     </div>
 
     <div id="quiz" class="container-quiz">
@@ -22,7 +22,7 @@
         <div id="word"></div>
         <div>Traduis en français le mot ci-dessus</div>
         <input type="text" id="answer" value=""/>
-        <button type="button" onClick="changeWord()">Valider</button>
+        <button type="button" id="validation">Valider</button>
         <div id="result"></div>
       </div>
       <img src="" id="peto"/>

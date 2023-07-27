@@ -135,6 +135,22 @@ document.getElementById("answer").addEventListener("input", (event) => {
     answer = event.target.value;
 })
 
+document.getElementById("difficulty-20").addEventListener("click", (event) => {
+    difficulty(20);
+})
+
+document.getElementById("difficulty-50").addEventListener("click", (event) => {
+    difficulty(50);
+})
+
+document.getElementById("difficulty-100").addEventListener("click", (event) => {
+    difficulty(100);
+})
+
+document.getElementById("validation").addEventListener("click", (event) => {
+    changeWord();
+})
+
 window.addEventListener('load', (event) => {
     let quiz = document.getElementById("quiz");
     let container_mark = document.getElementById("container-mark");
@@ -145,7 +161,7 @@ window.addEventListener('load', (event) => {
 
 // Functions
 
-export function difficulty(number) {
+function difficulty(number) {
     let quiz = document.getElementById("quiz");
     let home = document.getElementById("home");
 
@@ -158,13 +174,13 @@ export function difficulty(number) {
     displayWord()
 }
 
-export function nextWord() {
+function nextWord() {
     randomIndex = Math.floor(Math.random() * (vocabulaire.length))
 
     chosenWord = vocabulaire[randomIndex];
 }
 
-export function displayWord() {
+function displayWord() {
     let div = document.getElementById("word");
 
     nextWord();
@@ -172,7 +188,7 @@ export function displayWord() {
     div.innerHTML = chosenWord.jp;
 }
 
-export function displayResult(result, answer) {
+function displayResult(result, answer) {
     numberOfWords--;
 
     if(result === true)
@@ -233,7 +249,7 @@ export function displayResult(result, answer) {
     }
 }
 
-export function changeWord() {
+function changeWord() {
     chosenWord.score += answer.toLowerCase() === chosenWord.fr ? 1 : 0
     chosenWord.counter++
 
