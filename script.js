@@ -175,7 +175,7 @@ function difficulty(number) {
 }
 
 function nextWord() {
-    randomIndex = Math.floor(Math.random() * (vocabulaire.length))
+    let randomIndex = Math.floor(Math.random() * (vocabulaire.length))
 
     chosenWord = vocabulaire[randomIndex];
 }
