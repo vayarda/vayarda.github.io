@@ -2,21 +2,36 @@
 <html lang="fr">
 <head>
   <meta charset="utf-8">
-  <title>Titre de la page</title>
+  <title>Cours de japonais de Roberto-sensei</title>
   <link rel="stylesheet" href="style.css">
   <script src="script.js" defer></script>
 </head>
 <body>
   <div class="container">
-    <img src="" id="robert"/>
-    <div class="quiz">
-      <div id="word"></div>
-      <div>Traduis en français le mot ci-dessus</div>
-      <input type="text" id="answer" value=""/>
-      <button type="button" onClick="changeWord()">Valider</button>
-      <div id="result"></div>
+    <div id="home" class="container-home">
+      <div>Quelle série souhaitez-vous faire ?</div>
+      <button type="button" onClick="difficulty(20)">20 mots</button>
+      <button type="button" onClick="difficulty(50)">50 mots</button>
+      <button type="button" onClick="difficulty(100)">100 mots</button>
     </div>
-    <img src="" id="peto"/>
+
+    <div id="quiz" class="container-quiz">
+      <img src="" id="robert"/>
+      <div class="quiz">
+        <div id="word"></div>
+        <div>Traduis en français le mot ci-dessus</div>
+        <input type="text" id="answer" value=""/>
+        <button type="button" onClick="changeWord()">Valider</button>
+        <div id="result"></div>
+      </div>
+      <img src="" id="peto"/>
+    </div>
+
+    <div id="container-mark" class="container-mark">
+      <div>Vous avez obtenu la note de</div>
+      <div id="mark"></div>
+      <div id="review"></div>
+    </div>
   </div>
 </body>
 </html>

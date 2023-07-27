@@ -1,9 +1,27 @@
-.container {
+.container-quiz {
     display: grid;
     grid-template-columns: 30% 40% 30%;
+    height: 500px;
+    justify-items: center;
 }
 
 .quiz {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 1em;
+}
+
+.container-home {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 1em;
+}
+
+.container-mark {
     display: flex;
     flex-direction: column;
     justify-content: center;

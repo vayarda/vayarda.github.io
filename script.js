@@ -74,7 +74,48 @@ const vocabulaire = [
                         new Mot('homme','おとこ',0),
                         new Mot('avant-hier','おととい',0),
                         new Mot('adulte','おとな ',0),
-                        new Mot('bonne nuit','おやすみなさい',0),
+                        new Mot('nager','およぐ',0),
+                        new Mot('finir','おわる',0),
+                        new Mot('musique','おんがく',0),
+                        new Mot('femme','おんな',0),
+                        new Mot('étranger','がいこくじん',0),
+                        new Mot('entreprise','かいしゃ',0),
+                        new Mot('escalier','かいだん',0),
+                        new Mot('acheter','かう ',0),
+                        new Mot('visage','かお',0),
+                        new Mot('clé','かぎ',0),
+                        new Mot('écrire','かく ',0),
+                        new Mot('parapluie','かさ',0),
+                        new Mot('prêter','かす',0),
+                        new Mot('vent','かぜ ',0),
+                        new Mot('famille','かぞく',0),
+                        new Mot('école','がっこう',0),
+                        new Mot('sac','かばん',0),
+                        new Mot('papier','かみ',0),
+                        new Mot('appareil photo','カメラ',0),
+                        new Mot('mardi','かようび ',0),
+                        new Mot('épicé','からい',0),
+                        new Mot('emprunter','かりる',0),
+                        new Mot('léger','かるい',0),
+                        new Mot('calendrier','カレンダー',0),
+                        new Mot('rivière','かわ',0),
+                        new Mot('mignon','かわいい',0),
+                        new Mot('arbre','き',0),
+                        new Mot('jaune','きいろい',0),
+                        new Mot('écouter','きく',0),
+                        new Mot('nord','きた',0),
+                        new Mot('guitare','ギター',0),
+                        new Mot('sale','きたない',0),
+                        new Mot('timbre','きって',0),
+                        new Mot('ticket','きっぷ',0),
+                        new Mot('hier','きのう',0),
+                        new Mot('neuf','きゅう',0),
+                        new Mot('aujourd\'hui','きょう',0),
+                        new Mot('salle de classe','きょうしつ',0),
+                        new Mot('année dernière','きょねん',0),
+                        new Mot('beau','きれい',0),
+                        new Mot('banque','ぎんこう',0),
+                        new Mot('vendredi','きんようび',0),
                         new Mot('chat','ねこ',0),
                         new Mot('poisson','さかな',0),
                         new Mot('souris','ねずみ',0)
@@ -82,6 +123,9 @@ const vocabulaire = [
 
 let chosenWord = vocabulaire[0]
 let answer = ''
+let numberOfWords = 20
+let goodAnswers = 0
+let mark = 20
 
 // Listeners
 
@@ -90,15 +134,30 @@ document.getElementById("answer").addEventListener("input", (event) => {
 })
 
 window.addEventListener('load', (event) => {
-    displayWord();
+    let quiz = document.getElementById("quiz");
+    let container_mark = document.getElementById("container-mark");
+
+    quiz.style.display = "none"
+    container_mark.style.display = "none"
 })
 
 // Functions
 
+function difficulty(number) {
+    let quiz = document.getElementById("quiz");
+    let home = document.getElementById("home");
+
+    home.style.display = "none"
+    quiz.style.display = "grid"
+
+    numberOfWords = number;
+    mark = number;
+
+    displayWord()
+}
+
 function nextWord() {
     randomIndex = Math.floor(Math.random() * (vocabulaire.length))
-
-    console.log(randomIndex)
 
     chosenWord = vocabulaire[randomIndex];
 }
@@ -112,29 +171,71 @@ function displayWord() {
 }
 
 function displayResult(result, answer) {
-    let div = document.getElementById("result");
-    let robert = document.getElementById("robert");
-    let peto = document.getElementById("peto");
+    numberOfWords--;
 
     if(result === true)
     {
-        div.innerHTML = "Bravo !";
-        robert.src = "good-robert.png";
-        peto.src = "good-peto.png";
+        goodAnswers++;
+    }
+
+    if(numberOfWords === 0)
+    {
+        let quiz = document.getElementById("quiz");
+        let container_mark = document.getElementById("container-mark");
+
+        quiz.style.display = "none";
+        container_mark.style.display = "flex";
+
+        let div = document.getElementById("mark")
+        let review = document.getElementById("review")
+
+        div.innerHTML = goodAnswers + "/" + mark
+
+        const percent = goodAnswers * 100 / mark
+
+        if(percent < 0.25)
+        {
+            review.innerHTML = "Pas terrible, privé de bières !"
+        }
+        else if(percent < 0.5)
+        {
+            review.innerHTML = "Mouais, t'auras le droit à 1 gyoza..."
+        }
+        else if(percent < 0.75)
+        {
+            review.innerHTML = "Okay, okay, t'as le droit à une demi-bière !"
+        }
+        else
+        {
+            review.innerHTML = "Waouh, t'as bien mérité une bière !"
+        }
     }
     else
     {
-        div.innerHTML = "Aïe, la réponse était : " + answer;
-        robert.src = "bad-robert.png";
-        peto.src = "bad-peto.png";
+        let div = document.getElementById("result");
+        let robert = document.getElementById("robert");
+        let peto = document.getElementById("peto");
+
+        if(result === true)
+        {
+            div.innerHTML = "Bravo !";
+            robert.src = "good-robert.png";
+            peto.src = "good-peto.png";
+        }
+        else
+        {
+            div.innerHTML = "Aïe, la réponse était : " + answer;
+            robert.src = "bad-robert.png";
+            peto.src = "bad-peto.png";
+        }
     }
 }
 
 function changeWord() {
-    chosenWord.score += answer === chosenWord.fr ? 1 : 0
+    chosenWord.score += answer.toLowerCase() === chosenWord.fr ? 1 : 0
     chosenWord.counter++
 
-    displayResult(answer === chosenWord.fr, chosenWord.fr)
+    displayResult(answer.toLowerCase() === chosenWord.fr, chosenWord.fr)
 
     answer = ''
     document.getElementById('answer').value = ''
