@@ -145,7 +145,7 @@ window.addEventListener('load', (event) => {
 
 // Functions
 
-function difficulty(number) {
+export function difficulty(number) {
     let quiz = document.getElementById("quiz");
     let home = document.getElementById("home");
 
@@ -158,13 +158,13 @@ function difficulty(number) {
     displayWord()
 }
 
-function nextWord() {
+export function nextWord() {
     randomIndex = Math.floor(Math.random() * (vocabulaire.length))
 
     chosenWord = vocabulaire[randomIndex];
 }
 
-function displayWord() {
+export function displayWord() {
     let div = document.getElementById("word");
 
     nextWord();
@@ -172,7 +172,7 @@ function displayWord() {
     div.innerHTML = chosenWord.jp;
 }
 
-function displayResult(result, answer) {
+export function displayResult(result, answer) {
     numberOfWords--;
 
     if(result === true)
@@ -233,7 +233,7 @@ function displayResult(result, answer) {
     }
 }
 
-function changeWord() {
+export function changeWord() {
     chosenWord.score += answer.toLowerCase() === chosenWord.fr ? 1 : 0
     chosenWord.counter++
 
