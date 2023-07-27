@@ -1,19 +1,19 @@
 import { vocabulaire } from './modules/vocabulaire.js';
 
-class Mot {
-    constructor(fr, jp, score)
-    {
-        this.fr = fr;
-        this.jp = jp;
-        this.score = score;
-        this.counter = 0;
-    }
+// class Mot {
+//     constructor(fr, jp, score)
+//     {
+//         this.fr = fr;
+//         this.jp = jp;
+//         this.score = score;
+//         this.counter = 0;
+//     }
 
-    getPercentage()
-    {
-        return this.counter === 0 ? -1 : this.score
-    }
-}
+//     getPercentage()
+//     {
+//         return this.counter === 0 ? -1 : this.score
+//     }
+// }
 
 // Variables
 
