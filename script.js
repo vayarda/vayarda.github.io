@@ -211,15 +211,15 @@ function displayResult(result, answer) {
 
         const percent = goodAnswers * 100 / mark
 
-        if(percent < 0.25)
+        if(percent < 25)
         {
             review.innerHTML = "Pas terrible, privé de bières !"
         }
-        else if(percent < 0.5)
+        else if(percent < 50)
         {
             review.innerHTML = "Mouais, t'auras le droit à 1 gyoza..."
         }
-        else if(percent < 0.75)
+        else if(percent < 75)
         {
             review.innerHTML = "Okay, okay, t'as le droit à une demi-bière !"
         }
