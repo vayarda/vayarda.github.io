@@ -208,6 +208,7 @@ let answer = ''
 let numberOfWords = 20
 let goodAnswers = 0
 let mark = 20
+let qcm_mode = false
 
 // Listeners
 
@@ -227,12 +228,32 @@ document.getElementById("difficulty-100").addEventListener("click", (event) => {
     difficulty(100);
 })
 
+document.getElementById("mode-qcm").addEventListener("click", (event) => {
+    mode(true)
+})
+
+document.getElementById("mode-answer").addEventListener("click", (event) => {
+    mode(false)
+})
+
 document.getElementById("validation").addEventListener("click", (event) => {
     changeWord();
 })
 
+document.querySelectorAll("button[id^=qcm-]").forEach((button) => {
+    button.addEventListener("click", (event) => {
+        answer = button.innerHTML;
+
+        changeWord();
+    })
+})
+
 document.getElementById("question").addEventListener("transitionend", (event) => {
     document.getElementById("question").className = 'quiz'
+})
+
+document.getElementById("question-qcm").addEventListener("transitionend", (event) => {
+    document.getElementById("question-qcm").className = 'quiz'
 })
 
 document.getElementById("answer").addEventListener("keydown", (event) => {
@@ -251,16 +272,27 @@ document.getElementById("return").addEventListener("click", (event) => {
 // Functions
 
 function difficulty(number) {
-    let quiz = document.getElementById("quiz");
+    let difficulty = document.getElementById("difficulty");
+    let mode = document.getElementById("mode");
+
+    difficulty.style.display = "none"
+    mode.style.display = "flex"
+
+    numberOfWords = number;
+    mark = number;
+}
+
+function mode(qcm) {
+
+    let quiz = qcm === true ? document.getElementById("quiz-qcm") : document.getElementById("quiz");
     let home = document.getElementById("home");
 
     home.style.display = "none"
     quiz.style.display = "grid"
 
-    numberOfWords = number;
-    mark = number;
+    qcm_mode = qcm
 
-    displayWord()
+    displayWord();
 }
 
 function nextWord() {
@@ -270,11 +302,63 @@ function nextWord() {
 }
 
 function displayWord() {
-    let div = document.getElementById("word");
+    let div = qcm_mode === true ? document.getElementById("word-qcm") : document.getElementById("word");
 
     nextWord();
 
     div.innerHTML = chosenWord.jp;
+
+    if(qcm_mode === true)
+    {
+        let buttons = document.querySelectorAll("button[id^=qcm-]");
+
+        let answers = [chosenWord.fr[0]];
+
+        for(let i=0; i<7; i++)
+        {
+            let randomIndex = Math.floor(Math.random() * (vocabulaire.length))
+
+            while(answers.includes(vocabulaire[randomIndex].fr[0]))
+            {
+                randomIndex = Math.floor(Math.random() * (vocabulaire.length))
+            }
+
+            answers.push(vocabulaire[randomIndex].fr[0])
+        }
+
+        console.log(answers)
+
+        let currentIndex = answers.length;
+
+        while (currentIndex != 0) {
+
+            // Pick a remaining element.
+            randomIndex = Math.floor(Math.random() * currentIndex);
+            currentIndex--;
+
+            // And swap it with the current element.
+            [answers[currentIndex], answers[randomIndex]] = [answers[randomIndex], answers[currentIndex]];
+        }
+
+        console.log(answers)
+
+        for(let i=0; i<8; i++)
+        {
+            buttons[i].innerHTML = answers[i]
+        }
+    }
+}
+
+function changeWord() {
+    chosenWord.score += chosenWord.fr.includes(answer.toLowerCase()) ? 1 : 0
+    chosenWord.counter++
+
+    displayResult(chosenWord.fr.includes(answer.toLowerCase()), chosenWord.fr.reduce((acc,value) => acc === "" ? value : acc + ", " + value, ""))
+
+    answer = ''
+    document.getElementById('answer').value = ''
+
+    displayWord()
 }
 
 function displayResult(result, answer) {
@@ -287,7 +371,7 @@ function displayResult(result, answer) {
 
     if(numberOfWords === 0)
     {
-        let quiz = document.getElementById("quiz");
+        let quiz = qcm_mode === true ? document.getElementById("quiz-qcm") : document.getElementById("quiz");
         let container_mark = document.getElementById("container-mark");
 
         quiz.style.display = "none";
@@ -319,10 +403,10 @@ function displayResult(result, answer) {
     }
     else
     {
-        let div = document.getElementById("result");
-        let question = document.getElementById("question");
-        let robert = document.getElementById("robert");
-        let peto = document.getElementById("peto");
+        let div = qcm_mode === true ? document.getElementById("result-qcm") : document.getElementById("result");
+        let question = qcm_mode === true ? document.getElementById("question-qcm") : document.getElementById("question");
+        let robert = qcm_mode === true ? document.getElementById("robert-qcm") : document.getElementById("robert");
+        let peto = qcm_mode === true ? document.getElementById("peto-qcm") : document.getElementById("peto");
 
         if(result === true)
         {
@@ -343,22 +427,17 @@ function displayResult(result, answer) {
     }
 }
 
-function changeWord() {
-    chosenWord.score += chosenWord.fr.includes(answer.toLowerCase()) ? 1 : 0
-    chosenWord.counter++
-
-    displayResult(chosenWord.fr.includes(answer.toLowerCase()), chosenWord.fr.reduce((acc,value) => acc === "" ? value : acc + ", " + value, ""))
-
-    answer = ''
-    document.getElementById('answer').value = ''
-
-    displayWord()
-}
-
 function home() {
     let container_mark = document.getElementById("container-mark");
     let home = document.getElementById("home");
     let result = document.getElementById("result");
+    let result_qcm = document.getElementById("result-qcm");
+    let question = document.getElementById("question");
+    let question_qcm = document.getElementById("question-qcm");
+    let robert = document.getElementById("robert");
+    let robert_qcm = document.getElementById("robert-qcm");
+    let peto = document.getElementById("peto");
+    let peto_qcm = document.getElementById("peto-qcm");
 
     container_mark.style.display = "none";
     home.style.display = "flex";
@@ -368,5 +447,13 @@ function home() {
     numberOfWords = 20
     goodAnswers = 0
     mark = 20
+    qcm_mode = false
     result.innerHTML = ''
+    result_qcm.innerHTML = ''
+    question.className = 'quiz'
+    question_qcm.className = 'quiz'
+    robert.src = ''
+    robert_qcm.src = ''
+    peto.src = ''
+    peto_qcm.src = ''
 }
