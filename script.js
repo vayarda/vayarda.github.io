@@ -326,21 +326,17 @@ function displayWord() {
             answers.push(vocabulaire[randomIndex].fr[0])
         }
 
-        console.log(answers)
-
         let currentIndex = answers.length;
 
         while (currentIndex != 0) {
 
             // Pick a remaining element.
-            randomIndex = Math.floor(Math.random() * currentIndex);
+            let randomIndex = Math.floor(Math.random() * currentIndex);
             currentIndex--;
 
             // And swap it with the current element.
             [answers[currentIndex], answers[randomIndex]] = [answers[randomIndex], answers[currentIndex]];
         }
-
-        console.log(answers)
 
         for(let i=0; i<8; i++)
         {
