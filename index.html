@@ -9,6 +9,10 @@
 </head>
 <body>
   <div class="container">
+    <div>
+      <img src="titre.png"/>
+    </div>
+
     <div id="home" class="container-home">
       <div>Quelle série souhaites-tu faire ?</div>
       <button type="button" id="difficulty-20">20 mots</button>
@@ -18,7 +22,7 @@
 
     <div id="quiz" class="container-quiz">
       <img src="" id="robert"/>
-      <div class="quiz">
+      <div id="question" class="quiz">
         <div id="word"></div>
         <div>Traduis en français le mot ci-dessus</div>
         <input type="text" id="answer" value=""/>
@@ -30,8 +34,9 @@
 
     <div id="container-mark" class="container-mark">
       <div>Vous avez obtenu la note de</div>
-      <div id="mark"></div>
+      <div id="mark" class="mark"></div>
       <div id="review"></div>
+      <button type="button" id="return">Retour</button>
     </div>
   </div>
 </body>

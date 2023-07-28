@@ -22,7 +22,7 @@ import { vocabulaire } from './modules/vocabulaire.js';
 //     new Mot(['rouge'],'あかい',0),
 //     new Mot(['automne'],'あき',0),
 //     new Mot(['ouvrir'],'あける',0),
-//     new Mot(['donner'],'あげる',0),
+//     new Mot(['donner', 'offrir'],'あげる',0),
 //     new Mot(['matin'],'あさ',0),
 //     new Mot(['petit-déjeuner'],'あさごはん',0),
 //     new Mot(['après-demain'],'あさって',0),
@@ -119,7 +119,7 @@ import { vocabulaire } from './modules/vocabulaire.js';
 //     new Mot(['banque'],'ぎんこう',0),
 //     new Mot(['vendredi'],'きんようび',0),
 //     new Mot(['médicament'],'くすり',0),
-//     new Mot(['fruit'],'きくだもの',0),
+//     new Mot(['fruit'],'くだもの',0),
 //     new Mot(['bouche', 'ouverture'],'くち',0),
 //     new Mot(['chaussures'],'くつ',0),
 //     new Mot(['chaussettes'],'くつした',0),
@@ -159,6 +159,46 @@ import { vocabulaire } from './modules/vocabulaire.js';
 //     new Mot(['sel'],'しお',0),
 //     new Mot(['mais', 'cependant'],'しかし',0),
 //     new Mot(['travail'],'しごと',0),
+//     new Mot(['dictionnaire'],'じしょ',0),
+//     new Mot(['calme'],'しずか',0),
+//     new Mot(['sous', 'dessous', 'en-dessous'],'した',0),
+//     new Mot(['question'],'しつもん',0),
+//     new Mot(['vélo', 'bicyclette'],'じてんしゃ',0),
+//     new Mot(['fermer', 'attacher'],'しめる',0),
+//     new Mot(['photo', 'photographie'],'しゃしん',0),
+//     new Mot(['chemise'],'シャツ',0),
+//     new Mot(['douche'],'シャワー',0),
+//     new Mot(['cours'],'じゅぎょう',0),
+//     new Mot(['sauce soja'],'しょうゆ',0),
+//     new Mot(['savoir'],'しる',0),
+//     new Mot(['blanc'],'しろい',0),
+//     new Mot(['journal'],'しんぶん',0),
+//     new Mot(['mercredi'],'すいようび',0),
+//     new Mot(['jupe'],'スカート',0),
+//     new Mot(['immédiatement'],'すぐに',0),
+//     new Mot(['un peu'],'すこし',0),
+//     new Mot(['frais'],'すずしい',0),
+//     new Mot(['cuillère'],'スプーン',0),
+//     new Mot(['sport'],'スポーツ',0),
+//     new Mot(['pantalon'],'ズボン',0),
+//     new Mot(['chaussons','pantoufles'],'スリッパ',0),
+//     new Mot(['faire'],'する',0),
+//     new Mot(['s\'asseoir'],'すわる',0),
+//     new Mot(['pull','sweat'],'セーター',0),
+//     new Mot(['savon'],'せっけん',0),
+//     new Mot(['mille'],'せん',0),
+//     new Mot(['mois dernier'],'せんげつ',0),
+//     new Mot(['semaine dernière'],'せんしゅう',0),
+//     new Mot(['maître','professeur','enseignant'],'せんせい',0),
+//     new Mot(['lessive'],'せんたく',0),
+//     new Mot(['ensuite','après'],'そうして',0),
+//     new Mot(['extérieur','dehors'],'そと',0),
+//     new Mot(['ciel'],'そら',0),
+//     new Mot(['université'],'だいがく',0),
+//     new Mot(['ambassade'],'たいしかん',0),
+//     new Mot(['important'],'たいせつ',0),
+//     new Mot(['cuisine'],'だいどころ',0),
+//     new Mot(['haut','élevé','cher'],'たかい',0),
 //     new Mot(['chat'],'ねこ',0),
 //     new Mot(['souris'],'ねずみ',0)
 // ]
@@ -191,13 +231,22 @@ document.getElementById("validation").addEventListener("click", (event) => {
     changeWord();
 })
 
-window.addEventListener('load', (event) => {
-    let quiz = document.getElementById("quiz");
-    let container_mark = document.getElementById("container-mark");
-
-    quiz.style.display = "none"
-    container_mark.style.display = "none"
+document.getElementById("question").addEventListener("transitionend", (event) => {
+    document.getElementById("question").className = 'quiz'
 })
+
+document.getElementById("answer").addEventListener("keydown", (event) => {
+    if(event.key === 'Enter')
+    {
+        changeWord();
+    }
+})
+
+document.getElementById("return").addEventListener("click", (event) => {
+    home();
+})
+
+// window.addEventListener('load', (event) => {})
 
 // Functions
 
@@ -271,18 +320,23 @@ function displayResult(result, answer) {
     else
     {
         let div = document.getElementById("result");
+        let question = document.getElementById("question");
         let robert = document.getElementById("robert");
         let peto = document.getElementById("peto");
 
         if(result === true)
         {
             div.innerHTML = "Bravo !";
+            div.className = 'good';
+            question.className = 'quiz quiz-good';
             robert.src = "good-robert.png";
             peto.src = "good-peto.png";
         }
         else
         {
             div.innerHTML = "Aïe, la réponse était : " + answer;
+            div.className = 'bad';
+            question.className = 'quiz quiz-bad';
             robert.src = "bad-robert.png";
             peto.src = "bad-peto.png";
         }
@@ -301,3 +355,18 @@ function changeWord() {
     displayWord()
 }
 
+function home() {
+    let container_mark = document.getElementById("container-mark");
+    let home = document.getElementById("home");
+    let result = document.getElementById("result");
+
+    container_mark.style.display = "none";
+    home.style.display = "flex";
+
+    chosenWord = vocabulaire[0]
+    answer = ''
+    numberOfWords = 20
+    goodAnswers = 0
+    mark = 20
+    result.innerHTML = ''
+}
