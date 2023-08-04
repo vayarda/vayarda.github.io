@@ -384,7 +384,7 @@ function progression() {
         }
     }
 
-    score_progress = {
+    const score_progress = {
         15625: 7,
         3125: 6,
         625: 5,
