@@ -1,263 +1,263 @@
-import { vocabulaire } from './modules/vocabulaire.js';
+// import { vocabulaire } from './modules/vocabulaire.js';
 
-// class Mot {
-//     constructor(fr, jp, score)
-//     {
-//         this.fr = fr;
-//         this.jp = jp;
-//         this.score = score;
-//         this.counter = 0;
-//     }
-// }
+class Mot {
+    constructor(fr, jp, score)
+    {
+        this.fr = fr;
+        this.jp = jp;
+        this.score = score;
+        this.counter = 0;
+    }
+}
 
 /************************/
 /***    Variables     ***/
 /************************/
 
-// const basic_score = 15625
+const basic_score = 15625
 
-// const vocabulaire = [
-//     new Mot(['bleu'],'あおい',basic_score),
-//     new Mot(['rouge'],'あかい',basic_score),
-//     new Mot(['automne'],'あき',basic_score),
-//     new Mot(['ouvrir'],'あける',basic_score),
-//     new Mot(['donner', 'offrir'],'あげる',basic_score),
-//     new Mot(['matin'],'あさ',basic_score),
-//     new Mot(['petit-déjeuner'],'あさごはん',basic_score),
-//     new Mot(['après-demain'],'あさって',basic_score),
-//     new Mot(['pied', 'jambe'],'あし',basic_score),
-//     new Mot(['demain'],'あした',basic_score),
-//     new Mot(['jouer'],'あそぶ',basic_score),
-//     new Mot(['tête'],'あたま',basic_score),
-//     new Mot(['nouveau'],'あたらしい',basic_score),
-//     new Mot(['chaud'],'あつい',basic_score),
-//     new Mot(['grand-frère'],'あに',basic_score),
-//     new Mot(['grande-soeur'],'あね',basic_score),
-//     new Mot(['appartement'],'アパート',basic_score),
-//     new Mot(['dangereux'],'あぶない',basic_score),
-//     new Mot(['sucré'],'あまい',basic_score),
-//     new Mot(['pluie'],'あめ',basic_score),
-//     new Mot(['laver'],'あらう',basic_score),
-//     new Mot(['marcher'],'あるく',basic_score),
-//     new Mot(['non'],'いいえ',basic_score),
-//     new Mot(['dire'],'いう',basic_score),
-//     new Mot(['maison'],'いえ',basic_score),
-//     new Mot(['aller'],'いく',basic_score),
-//     new Mot(['médecin', 'docteur'],'いしゃ',basic_score),
-//     new Mot(['chaise'],'いす',basic_score),
-//     new Mot(['occupé'],'いそがしい',basic_score),
-//     new Mot(['un'],'いち',basic_score),
-//     new Mot(['chien'],'いぬ',basic_score),
-//     new Mot(['maintenant'],'いま',basic_score),
-//     new Mot(['petite-soeur'],'いもうと',basic_score),
-//     new Mot(['entrée'],'いりぐち',basic_score),
-//     new Mot(['couleur'],'いろ',basic_score),
-//     new Mot(['dessus', 'au-dessus'],'うえ',basic_score),
-//     new Mot(['derrière'],'うしろ',basic_score),
-//     new Mot(['chanson'],'うた',basic_score),
-//     new Mot(['chanter'],'うたう',basic_score),
-//     new Mot(['mer'],'うみ',basic_score),
-//     new Mot(['vendre'],'うる',basic_score),
-//     new Mot(['manteau'],'うわぎ',basic_score),
-//     new Mot(['image'],'え',basic_score),
-//     new Mot(['film'],'えいが',basic_score),
-//     new Mot(['cinéma'],'えいがかん',basic_score),
-//     new Mot(['anglais'],'えいご',basic_score),
-//     new Mot(['gare'],'えき',basic_score),
-//     new Mot(['ascenseur'],'エレベーター',basic_score),
-//     new Mot(['yen'],'えん',basic_score),
-//     new Mot(['délicieux'],'おいしい',basic_score),
-//     new Mot(['grand', 'gros'],'おおきい',basic_score),
-//     new Mot(['argent'],'おかね',basic_score),
-//     new Mot(['thé'],'おちゃ',basic_score),
-//     new Mot(['toilettes'],'おてあらい',basic_score),
-//     new Mot(['petit-frère'],'おとうと',basic_score),
-//     new Mot(['homme'],'おとこ',basic_score),
-//     new Mot(['avant-hier'],'おととい',basic_score),
-//     new Mot(['adulte'],'おとな ',basic_score),
-//     new Mot(['nager'],'およぐ',basic_score),
-//     new Mot(['finir'],'おわる',basic_score),
-//     new Mot(['musique'],'おんがく',basic_score),
-//     new Mot(['femme'],'おんな',basic_score),
-//     new Mot(['étranger'],'がいこくじん',basic_score),
-//     new Mot(['entreprise'],'かいしゃ',basic_score),
-//     new Mot(['escalier'],'かいだん',basic_score),
-//     new Mot(['acheter'],'かう',basic_score),
-//     new Mot(['visage'],'かお',basic_score),
-//     new Mot(['clé'],'かぎ',basic_score),
-//     new Mot(['écrire'],'かく',basic_score),
-//     new Mot(['parapluie'],'かさ',basic_score),
-//     new Mot(['prêter'],'かす',basic_score),
-//     new Mot(['vent'],'かぜ',basic_score),
-//     new Mot(['famille'],'かぞく',basic_score),
-//     new Mot(['école'],'がっこう',basic_score),
-//     new Mot(['sac'],'かばん',basic_score),
-//     new Mot(['papier'],'かみ',basic_score),
-//     new Mot(['appareil photo'],'カメラ',basic_score),
-//     new Mot(['mardi'],'かようび ',basic_score),
-//     new Mot(['épicé'],'からい',basic_score),
-//     new Mot(['emprunter'],'かりる',basic_score),
-//     new Mot(['léger'],'かるい',basic_score),
-//     new Mot(['calendrier'],'カレンダー',basic_score),
-//     new Mot(['rivière'],'かわ',basic_score),
-//     new Mot(['mignon'],'かわいい',basic_score),
-//     new Mot(['arbre'],'き',basic_score),
-//     new Mot(['jaune'],'きいろい',basic_score),
-//     new Mot(['écouter'],'きく',basic_score),
-//     new Mot(['nord'],'きた',basic_score),
-//     new Mot(['guitare'],'ギター',basic_score),
-//     new Mot(['sale'],'きたない',basic_score),
-//     new Mot(['timbre'],'きって',basic_score),
-//     new Mot(['ticket'],'きっぷ',basic_score),
-//     new Mot(['hier'],'きのう',basic_score),
-//     new Mot(['neuf'],'きゅう',basic_score),
-//     new Mot(['aujourd\'hui'],'きょう',basic_score),
-//     new Mot(['salle de classe'],'きょうしつ',basic_score),
-//     new Mot(['année dernière'],'きょねん',basic_score),
-//     new Mot(['beau'],'きれい',basic_score),
-//     new Mot(['banque'],'ぎんこう',basic_score),
-//     new Mot(['vendredi'],'きんようび',basic_score),
-//     new Mot(['médicament'],'くすり',basic_score),
-//     new Mot(['fruit'],'くだもの',basic_score),
-//     new Mot(['bouche', 'ouverture'],'くち',basic_score),
-//     new Mot(['chaussures'],'くつ',basic_score),
-//     new Mot(['chaussettes'],'くつした',basic_score),
-//     new Mot(['pays'],'くに',basic_score),
-//     new Mot(['voiture', 'automobile'],'くるま',basic_score),
-//     new Mot(['noir'],'くろい',basic_score),
-//     new Mot(['ce matin'],'けさ',basic_score),
-//     new Mot(['mariage'],'けっこん',basic_score),
-//     new Mot(['entrée', 'vestibule'],'げんかん',basic_score),
-//     new Mot(['cinq'],'ご',basic_score),
-//     new Mot(['parc'],'こうえん',basic_score),
-//     new Mot(['thé noir'],'こうちゃ',basic_score),
-//     new Mot(['voix'],'こえ',basic_score),
-//     new Mot(['café'],'コーヒー',basic_score),
-//     new Mot(['après-midi'],'ごご',basic_score),
-//     new Mot(['matin'],'ごぜん',basic_score),
-//     new Mot(['cette année'],'ことし',basic_score),
-//     new Mot(['mot'],'ことば',basic_score),
-//     new Mot(['enfant'],'こども',basic_score),
-//     new Mot(['repas'],'ごはん',basic_score),
-//     new Mot(['ce mois', 'ce mois-ci'],'こんげつ',basic_score),
-//     new Mot(['cette semaine'],'こんしゅう',basic_score),
-//     new Mot(['bonjour'],'こんにちは',basic_score),
-//     new Mot(['ce soir'],'こんばん',basic_score),
-//     new Mot(['bonsoir'],'こんばんは',basic_score),
-//     new Mot(['poisson'],'さかな',basic_score),
-//     new Mot(['alcool'],'さけ',basic_score),
-//     new Mot(['magazine', 'revue'],'ざっし',basic_score),
-//     new Mot(['sucre'],'さとう',basic_score),
-//     new Mot(['froid'],'さむい',basic_score),
-//     new Mot(['au revoir'],'さようなら',basic_score),
-//     new Mot(['assiette'],'さら',basic_score),
-//     new Mot(['trois', 'monsieur', 'madame'],'さん',basic_score),
-//     new Mot(['promenade', 'balade'],'さんぽ',basic_score),
-//     new Mot(['quatre'],'し',basic_score),
-//     new Mot(['heure'],'じ',basic_score),
-//     new Mot(['sel'],'しお',basic_score),
-//     new Mot(['mais', 'cependant'],'しかし',basic_score),
-//     new Mot(['travail'],'しごと',basic_score),
-//     new Mot(['dictionnaire'],'じしょ',basic_score),
-//     new Mot(['calme'],'しずか',basic_score),
-//     new Mot(['sous', 'dessous', 'en-dessous'],'した',basic_score),
-//     new Mot(['question'],'しつもん',basic_score),
-//     new Mot(['vélo', 'bicyclette'],'じてんしゃ',basic_score),
-//     new Mot(['fermer', 'attacher'],'しめる',basic_score),
-//     new Mot(['photo', 'photographie'],'しゃしん',basic_score),
-//     new Mot(['chemise'],'シャツ',basic_score),
-//     new Mot(['douche'],'シャワー',basic_score),
-//     new Mot(['cours'],'じゅぎょう',basic_score),
-//     new Mot(['sauce soja'],'しょうゆ',basic_score),
-//     new Mot(['savoir'],'しる',basic_score),
-//     new Mot(['blanc'],'しろい',basic_score),
-//     new Mot(['journal'],'しんぶん',basic_score),
-//     new Mot(['mercredi'],'すいようび',basic_score),
-//     new Mot(['jupe'],'スカート',basic_score),
-//     new Mot(['immédiatement'],'すぐに',basic_score),
-//     new Mot(['un peu'],'すこし',basic_score),
-//     new Mot(['frais'],'すずしい',basic_score),
-//     new Mot(['cuillère'],'スプーン',basic_score),
-//     new Mot(['sport'],'スポーツ',basic_score),
-//     new Mot(['pantalon'],'ズボン',basic_score),
-//     new Mot(['chaussons','pantoufles'],'スリッパ',basic_score),
-//     new Mot(['faire'],'する',basic_score),
-//     new Mot(['s\'asseoir'],'すわる',basic_score),
-//     new Mot(['pull','sweat'],'セーター',basic_score),
-//     new Mot(['savon'],'せっけん',basic_score),
-//     new Mot(['mille'],'せん',basic_score),
-//     new Mot(['mois dernier'],'せんげつ',basic_score),
-//     new Mot(['semaine dernière'],'せんしゅう',basic_score),
-//     new Mot(['maître','professeur','enseignant'],'せんせい',basic_score),
-//     new Mot(['lessive'],'せんたく',basic_score),
-//     new Mot(['ensuite','après'],'そうして',basic_score),
-//     new Mot(['extérieur','dehors'],'そと',basic_score),
-//     new Mot(['ciel'],'そら',basic_score),
-//     new Mot(['université'],'だいがく',basic_score),
-//     new Mot(['ambassade'],'たいしかん',basic_score),
-//     new Mot(['important'],'たいせつ',basic_score),
-//     new Mot(['cuisine'],'だいどころ',basic_score),
-//     new Mot(['haut','élevé','cher'],'たかい',basic_score),
-//     new Mot(['beaucoup'],'たくさん',basic_score),
-//     new Mot(['taxi'],'タクシー',basic_score),
-//     new Mot(['se lever'],'たつ',basic_score),
-//     new Mot(['immeuble','bâtiment'],'たてもの',basic_score),
-//     new Mot(['amusant','agréable','plaisant'],'たのしい',basic_score),
-//     new Mot(['tabac'],'たばこ',basic_score),
-//     new Mot(['peut-être'],'たぶん',basic_score),
-//     new Mot(['nourriture'],'たべもの',basic_score),
-//     new Mot(['manger'],'たべる',basic_score),
-//     new Mot(['oeuf'],'たまご',basic_score),
-//     new Mot(['qui'],'だれ',basic_score),
-//     new Mot(['quelqu\'un'],'だれか',basic_score),
-//     new Mot(['anniversaire'],'たんじょうび',basic_score),
-//     new Mot(['petit'],'ちいさい',basic_score),
-//     new Mot(['métro'],'ちかてつ',basic_score),
-//     new Mot(['carte','plan'],'ちず',basic_score),
-//     new Mot(['père'],'ちち',basic_score),
-//     new Mot(['marron'],'ちゃいろ',basic_score),
-//     new Mot(['utiliser'],'つかう',basic_score),
-//     new Mot(['suivant'],'つぎ',basic_score),
-//     new Mot(['bureau'],'つくえ',basic_score),
-//     new Mot(['fabriquer','créer'],'つくる',basic_score),
-//     new Mot(['allumer'],'つける',basic_score),
-//     new Mot(['froid','glacial'],'つめたい',basic_score),
-//     new Mot(['fort','puissant'],'つよい',basic_score),
-//     new Mot(['main'],'て',basic_score),
-//     new Mot(['table'],'テーブル',basic_score),
-//     new Mot(['sortir','partir'],'でかける',basic_score),
-//     new Mot(['lettre'],'てがみ',basic_score),
-//     new Mot(['sortie'],'でぐち',basic_score),
-//     new Mot(['test'],'テスト',basic_score),
-//     new Mot(['mais'],'でも',basic_score),
-//     new Mot(['télévision','télé'],'テレビ',basic_score),
-//     new Mot(['météo','temps'],'てんき',basic_score),
-//     new Mot(['électricité'],'でんき',basic_score),
-//     new Mot(['train'],'でんしゃ',basic_score),
-//     new Mot(['téléphone'],'でんわ',basic_score),
-//     new Mot(['porte'],'ドア',basic_score),
-//     new Mot(['toilettes'],'トイレ',basic_score),
-//     new Mot(['pourquoi'],'どうして',basic_score),
-//     new Mot(['animal'],'どうぶつ',basic_score),
-//     new Mot(['loin','éloigné'],'とおい',basic_score),
-//     new Mot(['montre','horloge'],'とけい',basic_score),
-//     new Mot(['où'],'どこ',basic_score),
-//     new Mot(['lieu','endroit'],'ところ',basic_score),
-//     new Mot(['bibliothèque'],'としょかん',basic_score),
-//     new Mot(['vraiment','très'],'とても',basic_score),
-//     new Mot(['voisin','proche'],'となり',basic_score),
-//     new Mot(['sauter','voler'],'とぶ',basic_score),
-//     new Mot(['ami'],'ともだち',basic_score),
-//     new Mot(['samedi'],'どようび',basic_score),
-//     new Mot(['oiseau'],'とり',basic_score),
-//     new Mot(['prendre','photographier'],'とる',basic_score),
-//     new Mot(['lequel','laquelle'],'どれ',basic_score),
-//     new Mot(['couteau'],'ナイフ',basic_score),
-//     new Mot(['intérieur'],'なか',basic_score),
-//     new Mot(['long'],'ながい',basic_score),
-//     new Mot(['chat'],'ねこ',basic_score),
-//     new Mot(['souris'],'ねずみ',basic_score)
-// ]
+const vocabulaire = [
+    new Mot(['bleu'],'あおい',basic_score),
+    new Mot(['rouge'],'あかい',basic_score),
+    new Mot(['automne'],'あき',basic_score),
+    new Mot(['ouvrir'],'あける',basic_score),
+    new Mot(['donner', 'offrir'],'あげる',basic_score),
+    new Mot(['matin'],'あさ',basic_score),
+    new Mot(['petit-déjeuner'],'あさごはん',basic_score),
+    new Mot(['après-demain'],'あさって',basic_score),
+    new Mot(['pied', 'jambe'],'あし',basic_score),
+    new Mot(['demain'],'あした',basic_score),
+    new Mot(['jouer'],'あそぶ',basic_score),
+    new Mot(['tête'],'あたま',basic_score),
+    new Mot(['nouveau'],'あたらしい',basic_score),
+    new Mot(['chaud'],'あつい',basic_score),
+    new Mot(['grand-frère'],'あに',basic_score),
+    new Mot(['grande-soeur'],'あね',basic_score),
+    new Mot(['appartement'],'アパート',basic_score),
+    new Mot(['dangereux'],'あぶない',basic_score),
+    new Mot(['sucré'],'あまい',basic_score),
+    new Mot(['pluie'],'あめ',basic_score),
+    new Mot(['laver'],'あらう',basic_score),
+    new Mot(['marcher'],'あるく',basic_score),
+    new Mot(['non'],'いいえ',basic_score),
+    new Mot(['dire'],'いう',basic_score),
+    new Mot(['maison'],'いえ',basic_score),
+    new Mot(['aller'],'いく',basic_score),
+    new Mot(['médecin', 'docteur'],'いしゃ',basic_score),
+    new Mot(['chaise'],'いす',basic_score),
+    new Mot(['occupé'],'いそがしい',basic_score),
+    new Mot(['un'],'いち',basic_score),
+    new Mot(['chien'],'いぬ',basic_score),
+    new Mot(['maintenant'],'いま',basic_score),
+    new Mot(['petite-soeur'],'いもうと',basic_score),
+    new Mot(['entrée'],'いりぐち',basic_score),
+    new Mot(['couleur'],'いろ',basic_score),
+    new Mot(['dessus', 'au-dessus'],'うえ',basic_score),
+    new Mot(['derrière'],'うしろ',basic_score),
+    new Mot(['chanson'],'うた',basic_score),
+    new Mot(['chanter'],'うたう',basic_score),
+    new Mot(['mer'],'うみ',basic_score),
+    new Mot(['vendre'],'うる',basic_score),
+    new Mot(['manteau'],'うわぎ',basic_score),
+    new Mot(['image'],'え',basic_score),
+    new Mot(['film'],'えいが',basic_score),
+    new Mot(['cinéma'],'えいがかん',basic_score),
+    new Mot(['anglais'],'えいご',basic_score),
+    new Mot(['gare'],'えき',basic_score),
+    new Mot(['ascenseur'],'エレベーター',basic_score),
+    new Mot(['yen'],'えん',basic_score),
+    new Mot(['délicieux'],'おいしい',basic_score),
+    new Mot(['grand', 'gros'],'おおきい',basic_score),
+    new Mot(['argent'],'おかね',basic_score),
+    new Mot(['thé'],'おちゃ',basic_score),
+    new Mot(['toilettes'],'おてあらい',basic_score),
+    new Mot(['petit-frère'],'おとうと',basic_score),
+    new Mot(['homme'],'おとこ',basic_score),
+    new Mot(['avant-hier'],'おととい',basic_score),
+    new Mot(['adulte'],'おとな ',basic_score),
+    new Mot(['nager'],'およぐ',basic_score),
+    new Mot(['finir'],'おわる',basic_score),
+    new Mot(['musique'],'おんがく',basic_score),
+    new Mot(['femme'],'おんな',basic_score),
+    new Mot(['étranger'],'がいこくじん',basic_score),
+    new Mot(['entreprise'],'かいしゃ',basic_score),
+    new Mot(['escalier'],'かいだん',basic_score),
+    new Mot(['acheter'],'かう',basic_score),
+    new Mot(['visage'],'かお',basic_score),
+    new Mot(['clé'],'かぎ',basic_score),
+    new Mot(['écrire'],'かく',basic_score),
+    new Mot(['parapluie'],'かさ',basic_score),
+    new Mot(['prêter'],'かす',basic_score),
+    new Mot(['vent'],'かぜ',basic_score),
+    new Mot(['famille'],'かぞく',basic_score),
+    new Mot(['école'],'がっこう',basic_score),
+    new Mot(['sac'],'かばん',basic_score),
+    new Mot(['papier'],'かみ',basic_score),
+    new Mot(['appareil photo'],'カメラ',basic_score),
+    new Mot(['mardi'],'かようび ',basic_score),
+    new Mot(['épicé'],'からい',basic_score),
+    new Mot(['emprunter'],'かりる',basic_score),
+    new Mot(['léger'],'かるい',basic_score),
+    new Mot(['calendrier'],'カレンダー',basic_score),
+    new Mot(['rivière'],'かわ',basic_score),
+    new Mot(['mignon'],'かわいい',basic_score),
+    new Mot(['arbre'],'き',basic_score),
+    new Mot(['jaune'],'きいろい',basic_score),
+    new Mot(['écouter'],'きく',basic_score),
+    new Mot(['nord'],'きた',basic_score),
+    new Mot(['guitare'],'ギター',basic_score),
+    new Mot(['sale'],'きたない',basic_score),
+    new Mot(['timbre'],'きって',basic_score),
+    new Mot(['ticket','billet'],'きっぷ',basic_score),
+    new Mot(['hier'],'きのう',basic_score),
+    new Mot(['neuf'],'きゅう',basic_score),
+    new Mot(['aujourd\'hui'],'きょう',basic_score),
+    new Mot(['salle de classe'],'きょうしつ',basic_score),
+    new Mot(['année dernière'],'きょねん',basic_score),
+    new Mot(['beau'],'きれい',basic_score),
+    new Mot(['banque'],'ぎんこう',basic_score),
+    new Mot(['vendredi'],'きんようび',basic_score),
+    new Mot(['médicament'],'くすり',basic_score),
+    new Mot(['fruit'],'くだもの',basic_score),
+    new Mot(['bouche', 'ouverture'],'くち',basic_score),
+    new Mot(['chaussures'],'くつ',basic_score),
+    new Mot(['chaussettes'],'くつした',basic_score),
+    new Mot(['pays'],'くに',basic_score),
+    new Mot(['voiture', 'automobile'],'くるま',basic_score),
+    new Mot(['noir'],'くろい',basic_score),
+    new Mot(['ce matin'],'けさ',basic_score),
+    new Mot(['mariage'],'けっこん',basic_score),
+    new Mot(['entrée', 'vestibule'],'げんかん',basic_score),
+    new Mot(['cinq'],'ご',basic_score),
+    new Mot(['parc'],'こうえん',basic_score),
+    new Mot(['thé noir'],'こうちゃ',basic_score),
+    new Mot(['voix'],'こえ',basic_score),
+    new Mot(['café'],'コーヒー',basic_score),
+    new Mot(['après-midi'],'ごご',basic_score),
+    new Mot(['matin'],'ごぜん',basic_score),
+    new Mot(['cette année'],'ことし',basic_score),
+    new Mot(['mot'],'ことば',basic_score),
+    new Mot(['enfant'],'こども',basic_score),
+    new Mot(['repas'],'ごはん',basic_score),
+    new Mot(['ce mois', 'ce mois-ci'],'こんげつ',basic_score),
+    new Mot(['cette semaine'],'こんしゅう',basic_score),
+    new Mot(['bonjour'],'こんにちは',basic_score),
+    new Mot(['ce soir'],'こんばん',basic_score),
+    new Mot(['bonsoir'],'こんばんは',basic_score),
+    new Mot(['poisson'],'さかな',basic_score),
+    new Mot(['alcool'],'さけ',basic_score),
+    new Mot(['magazine', 'revue'],'ざっし',basic_score),
+    new Mot(['sucre'],'さとう',basic_score),
+    new Mot(['froid'],'さむい',basic_score),
+    new Mot(['au revoir'],'さようなら',basic_score),
+    new Mot(['assiette'],'さら',basic_score),
+    new Mot(['trois', 'monsieur', 'madame'],'さん',basic_score),
+    new Mot(['promenade', 'balade'],'さんぽ',basic_score),
+    new Mot(['quatre'],'し',basic_score),
+    new Mot(['heure'],'じ',basic_score),
+    new Mot(['sel'],'しお',basic_score),
+    new Mot(['mais', 'cependant'],'しかし',basic_score),
+    new Mot(['travail'],'しごと',basic_score),
+    new Mot(['dictionnaire'],'じしょ',basic_score),
+    new Mot(['calme'],'しずか',basic_score),
+    new Mot(['sous', 'dessous', 'en-dessous'],'した',basic_score),
+    new Mot(['question'],'しつもん',basic_score),
+    new Mot(['vélo', 'bicyclette'],'じてんしゃ',basic_score),
+    new Mot(['fermer', 'attacher'],'しめる',basic_score),
+    new Mot(['photo', 'photographie'],'しゃしん',basic_score),
+    new Mot(['chemise'],'シャツ',basic_score),
+    new Mot(['douche'],'シャワー',basic_score),
+    new Mot(['cours'],'じゅぎょう',basic_score),
+    new Mot(['sauce soja'],'しょうゆ',basic_score),
+    new Mot(['savoir'],'しる',basic_score),
+    new Mot(['blanc'],'しろい',basic_score),
+    new Mot(['journal'],'しんぶん',basic_score),
+    new Mot(['mercredi'],'すいようび',basic_score),
+    new Mot(['jupe'],'スカート',basic_score),
+    new Mot(['immédiatement'],'すぐに',basic_score),
+    new Mot(['un peu'],'すこし',basic_score),
+    new Mot(['frais'],'すずしい',basic_score),
+    new Mot(['cuillère'],'スプーン',basic_score),
+    new Mot(['sport'],'スポーツ',basic_score),
+    new Mot(['pantalon'],'ズボン',basic_score),
+    new Mot(['chaussons','pantoufles'],'スリッパ',basic_score),
+    new Mot(['faire'],'する',basic_score),
+    new Mot(['s\'asseoir'],'すわる',basic_score),
+    new Mot(['pull','sweat'],'セーター',basic_score),
+    new Mot(['savon'],'せっけん',basic_score),
+    new Mot(['mille'],'せん',basic_score),
+    new Mot(['mois dernier'],'せんげつ',basic_score),
+    new Mot(['semaine dernière'],'せんしゅう',basic_score),
+    new Mot(['maître','professeur','enseignant'],'せんせい',basic_score),
+    new Mot(['lessive'],'せんたく',basic_score),
+    new Mot(['ensuite','après'],'そうして',basic_score),
+    new Mot(['extérieur','dehors'],'そと',basic_score),
+    new Mot(['ciel'],'そら',basic_score),
+    new Mot(['université'],'だいがく',basic_score),
+    new Mot(['ambassade'],'たいしかん',basic_score),
+    new Mot(['important'],'たいせつ',basic_score),
+    new Mot(['cuisine'],'だいどころ',basic_score),
+    new Mot(['haut','élevé','cher'],'たかい',basic_score),
+    new Mot(['beaucoup'],'たくさん',basic_score),
+    new Mot(['taxi'],'タクシー',basic_score),
+    new Mot(['se lever'],'たつ',basic_score),
+    new Mot(['immeuble','bâtiment'],'たてもの',basic_score),
+    new Mot(['amusant','agréable','plaisant'],'たのしい',basic_score),
+    new Mot(['tabac'],'たばこ',basic_score),
+    new Mot(['peut-être'],'たぶん',basic_score),
+    new Mot(['nourriture'],'たべもの',basic_score),
+    new Mot(['manger'],'たべる',basic_score),
+    new Mot(['oeuf'],'たまご',basic_score),
+    new Mot(['qui'],'だれ',basic_score),
+    new Mot(['quelqu\'un'],'だれか',basic_score),
+    new Mot(['anniversaire'],'たんじょうび',basic_score),
+    new Mot(['petit'],'ちいさい',basic_score),
+    new Mot(['métro'],'ちかてつ',basic_score),
+    new Mot(['carte','plan'],'ちず',basic_score),
+    new Mot(['père'],'ちち',basic_score),
+    new Mot(['marron'],'ちゃいろ',basic_score),
+    new Mot(['utiliser'],'つかう',basic_score),
+    new Mot(['suivant'],'つぎ',basic_score),
+    new Mot(['bureau'],'つくえ',basic_score),
+    new Mot(['fabriquer','créer'],'つくる',basic_score),
+    new Mot(['allumer'],'つける',basic_score),
+    new Mot(['froid','glacial'],'つめたい',basic_score),
+    new Mot(['fort','puissant'],'つよい',basic_score),
+    new Mot(['main'],'て',basic_score),
+    new Mot(['table'],'テーブル',basic_score),
+    new Mot(['sortir','partir'],'でかける',basic_score),
+    new Mot(['lettre'],'てがみ',basic_score),
+    new Mot(['sortie'],'でぐち',basic_score),
+    new Mot(['test'],'テスト',basic_score),
+    new Mot(['mais'],'でも',basic_score),
+    new Mot(['télévision','télé'],'テレビ',basic_score),
+    new Mot(['météo','temps'],'てんき',basic_score),
+    new Mot(['électricité'],'でんき',basic_score),
+    new Mot(['train'],'でんしゃ',basic_score),
+    new Mot(['téléphone'],'でんわ',basic_score),
+    new Mot(['porte'],'ドア',basic_score),
+    new Mot(['toilettes'],'トイレ',basic_score),
+    new Mot(['pourquoi'],'どうして',basic_score),
+    new Mot(['animal'],'どうぶつ',basic_score),
+    new Mot(['loin','éloigné'],'とおい',basic_score),
+    new Mot(['montre','horloge'],'とけい',basic_score),
+    new Mot(['où'],'どこ',basic_score),
+    new Mot(['lieu','endroit'],'ところ',basic_score),
+    new Mot(['bibliothèque'],'としょかん',basic_score),
+    new Mot(['vraiment','très'],'とても',basic_score),
+    new Mot(['voisin','proche'],'となり',basic_score),
+    new Mot(['sauter','voler'],'とぶ',basic_score),
+    new Mot(['ami'],'ともだち',basic_score),
+    new Mot(['samedi'],'どようび',basic_score),
+    new Mot(['oiseau'],'とり',basic_score),
+    new Mot(['prendre','photographier'],'とる',basic_score),
+    new Mot(['lequel','laquelle'],'どれ',basic_score),
+    new Mot(['couteau'],'ナイフ',basic_score),
+    new Mot(['intérieur'],'なか',basic_score),
+    new Mot(['long'],'ながい',basic_score),
+    new Mot(['chat'],'ねこ',basic_score),
+    new Mot(['souris'],'ねずみ',basic_score)
+]
 
 const colors = {
                 1: "#31B500",
@@ -276,6 +276,7 @@ let goodAnswers = 0
 let mark = 20
 let qcm_mode = false
 let progress_index = 0
+let number_of_cards = 24
 
 /************************/
 /***    Listeners     ***/
@@ -299,6 +300,27 @@ window.onload = (event) => {
                 }
             }
         })
+    }
+
+    if(window.innerWidth <= 600)
+    {
+        number_of_cards = 9;
+    }
+    else if(window.innerWidth > 600 && window.innerWidth < 800)
+    {
+        number_of_cards = 12;
+    }
+    else if(window.innerWidth > 800 && window.innerWidth < 1000)
+    {
+        number_of_cards = 18;
+    }
+    else if(window.innerWidth > 1000 && window.innerWidth < 1200)
+    {
+        number_of_cards = 21;
+    }
+    else
+    {
+        number_of_cards = 24;
     }
 }
 
@@ -349,6 +371,46 @@ document.getElementById("right-index-progress").addEventListener("mouseout", (ev
 document.getElementById('right-index-progress').addEventListener("click", (event) => {
     change_index(1)
 })
+
+window.onresize = (event) => {
+    if(window.innerWidth <= 600)
+    {
+        number_of_cards = 9;
+    }
+    else if(window.innerWidth > 600 && window.innerWidth < 800)
+    {
+        number_of_cards = 12;
+    }
+    else if(window.innerWidth > 800 && window.innerWidth < 1000)
+    {
+        number_of_cards = 18;
+    }
+    else if(window.innerWidth > 1000 && window.innerWidth < 1200)
+    {
+        number_of_cards = 21;
+    }
+    else
+    {
+        number_of_cards = 24;
+    }
+
+    let progression_container = document.getElementById("container-progression");
+
+    if(progression_container.style.display === 'grid')
+    {
+        let container_card = document.getElementById("container-card");
+
+        container_card.textContent = '';
+
+        for(let i=number_of_cards*progress_index; i<(number_of_cards*progress_index + number_of_cards); i++)
+        {
+            if(i < vocabulaire.length)
+            {
+                container_card.appendChild(createCard(vocabulaire[i]))
+            }
+        }
+    }
+}
 
 // Menu difficulté
 
@@ -404,7 +466,7 @@ document.getElementById("validation").addEventListener("click", (event) => {
 })
 
 document.getElementById("question").addEventListener("transitionend", (event) => {
-    document.getElementById("question").className = 'quiz'
+    document.getElementById("question").className = 'question-clavier'
 })
 
 // Mode QCM
@@ -418,7 +480,7 @@ document.querySelectorAll("button[id^=qcm-]").forEach((button) => {
 })
 
 document.getElementById("question-qcm").addEventListener("transitionend", (event) => {
-    document.getElementById("question-qcm").className = 'quiz'
+    document.getElementById("question-qcm").className = 'question-qcm'
 })
 
 // Résultats
@@ -449,7 +511,7 @@ function progression() {
     home.style.display = "none"
     progression.style.display = "grid"
 
-    for(let i=30*progress_index; i<(30*progress_index + 30); i++)
+    for(let i=number_of_cards*progress_index; i<(number_of_cards*progress_index + number_of_cards); i++)
     {
         if(i < vocabulaire.length)
         {
@@ -502,7 +564,7 @@ function progression() {
 
 function change_index(value)
 {
-    if((value === -1 && progress_index - 1 >= 0) || (value === 1 && (progress_index + 1)*30 < vocabulaire.length))
+    if((value === -1 && progress_index - 1 >= 0) || (value === 1 && (progress_index + 1)*number_of_cards < vocabulaire.length))
     {
         progress_index += value;
 
@@ -511,7 +573,7 @@ function change_index(value)
 
         container_card.textContent = '';
 
-        for(let i=30*progress_index; i<(30*progress_index + 30); i++)
+        for(let i=number_of_cards*progress_index; i<(number_of_cards*progress_index + number_of_cards); i++)
         {
             if(i < vocabulaire.length)
             {
@@ -645,6 +707,7 @@ function displayWord() {
         for(let i=0; i<8; i++)
         {
             buttons[i].innerHTML = answers[i]
+            buttons[i].title = answers[i]
         }
     }
 }
@@ -701,7 +764,7 @@ function displayResult(result, answer) {
         let container_mark = document.getElementById("container-mark");
 
         quiz.style.display = "none";
-        container_mark.style.display = "flex";
+        container_mark.style.display = "grid";
 
         let div = document.getElementById("mark")
         let review = document.getElementById("review")
@@ -740,17 +803,17 @@ function displayResult(result, answer) {
         {
             div.innerHTML = "Bravo !";
             div.className = 'good';
-            question.className = 'quiz quiz-good';
-            robert.src = "good-robert.png";
-            peto.src = "good-peto.png";
+            question.className = qcm_mode === true ? 'question-qcm quiz-good' : 'question-clavier quiz-good';
+            robert.src = "./resources/good-robert.png";
+            peto.src = "./resources/good-peto.png";
         }
         else
         {
             div.innerHTML = "Aïe, la réponse était : " + answer;
             div.className = 'bad';
-            question.className = 'quiz quiz-bad';
-            robert.src = "bad-robert.png";
-            peto.src = "bad-peto.png";
+            question.className = qcm_mode === true ? 'question-qcm quiz-bad' : 'question-clavier quiz-bad';
+            robert.src = "./resources/bad-robert.png";
+            peto.src = "./resources/bad-peto.png";
         }
     }
 }
@@ -774,7 +837,7 @@ function home() {
 
     container_mark.style.display = "none";
     home.style.display = "grid";
-    difficulty.style.display = "flex";
+    difficulty.style.display = "grid";
     mode.style.display = "none";
     progression.style.display = "none";
 
@@ -790,8 +853,8 @@ function home() {
     progress_index = 0
     result.innerHTML = ''
     result_qcm.innerHTML = ''
-    question.className = 'quiz'
-    question_qcm.className = 'quiz'
+    question.className = 'question-qcm'
+    question_qcm.className = 'question-clavier'
     robert.src = ''
     robert_qcm.src = ''
     peto.src = ''

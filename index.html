@@ -2,19 +2,26 @@
 <html lang="fr">
 <head>
   <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0">
   <title>Cours de japonais de Roberto-sensei</title>
   <link rel="stylesheet" href="style.css">
-  <script type="module" src="./script.js"></script>
-  <!-- <script src="script.js" defer></script> -->
+  <link rel="stylesheet" href="./styles/home.css">
+  <link rel="stylesheet" href="./styles/progression.css">
+  <link rel="stylesheet" href="./styles/game.css">
+  <link rel="stylesheet" href="./styles/quiz.css">
+  <link rel="stylesheet" href="./styles/qcm.css">
+  <link rel="stylesheet" href="./styles/mark.css">
+  <!-- <script type="module" src="./script.js"></script> -->
+  <script src="script.js" defer></script>
 </head>
 <body>
   <div class="container">
     <div>
-      <img src="titre.png"/>
+      <img src="./resources/titre.png"/>
     </div>
 
     <div id="home" class="container-home">
-      <img src="menu.png"/>
+      <img src="./resources/menu.png"/>
       <div class="container-button">
         <button type="button" id="start" class="home-button">Commencer</button>
         <button type="button" id="progression" class="home-button">Progression</button>
@@ -43,7 +50,7 @@
       </div>
       <div id="mode" class="container-mode">
         <div>Quel mode souhaites-tu faire ?</div>
-        <div class="container-button">
+        <div class="container-button-mode">
           <button type="button" id="mode-qcm">QCM</button>
           <button type="button" id="mode-answer">Clavier</button>
         </div>
@@ -53,7 +60,7 @@
 
     <div id="quiz" class="container-quiz">
       <img src="" id="robert"/>
-      <div id="question" class="quiz">
+      <div id="question" class="question-clavier">
         <div id="word"></div>
         <div>Traduis en français le mot ci-dessus</div>
         <input type="text" id="answer" value=""/>
@@ -65,18 +72,18 @@
 
     <div id="quiz-qcm" class="container-quiz">
       <img src="" id="robert-qcm" class="img-peluche"/>
-      <div id="question-qcm" class="quiz">
+      <div id="question-qcm" class="question-qcm">
         <div id="word-qcm"></div>
         <div>Traduis en français le mot ci-dessus</div>
         <div class="container-qcm">
-          <button type="button" id="qcm-1"></button>
-          <button type="button" id="qcm-2"></button>
-          <button type="button" id="qcm-3"></button>
-          <button type="button" id="qcm-4"></button>
-          <button type="button" id="qcm-5"></button>
-          <button type="button" id="qcm-6"></button>
-          <button type="button" id="qcm-7"></button>
-          <button type="button" id="qcm-8"></button>
+          <button type="button" id="qcm-1" class="button-qcm"></button>
+          <button type="button" id="qcm-2" class="button-qcm"></button>
+          <button type="button" id="qcm-3" class="button-qcm"></button>
+          <button type="button" id="qcm-4" class="button-qcm"></button>
+          <button type="button" id="qcm-5" class="button-qcm"></button>
+          <button type="button" id="qcm-6" class="button-qcm"></button>
+          <button type="button" id="qcm-7" class="button-qcm"></button>
+          <button type="button" id="qcm-8" class="button-qcm"></button>
         </div>
         <div id="result-qcm"></div>
       </div>
