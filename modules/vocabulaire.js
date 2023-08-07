@@ -6,11 +6,6 @@ class Mot {
         this.score = score;
         this.counter = 0;
     }
-
-    getPercentage()
-    {
-        return this.counter === 0 ? -1 : this.score
-    }
 }
 
 const basic_score = 15625
@@ -197,6 +192,63 @@ export const vocabulaire = [
     new Mot(['important'],'たいせつ',basic_score),
     new Mot(['cuisine'],'だいどころ',basic_score),
     new Mot(['haut','élevé','cher'],'たかい',basic_score),
+    new Mot(['beaucoup'],'たくさん',basic_score),
+    new Mot(['taxi'],'タクシー',basic_score),
+    new Mot(['se lever'],'たつ',basic_score),
+    new Mot(['immeuble','bâtiment'],'たてもの',basic_score),
+    new Mot(['amusant','agréable','plaisant'],'たのしい',basic_score),
+    new Mot(['tabac'],'たばこ',basic_score),
+    new Mot(['peut-être'],'たぶん',basic_score),
+    new Mot(['nourriture'],'たべもの',basic_score),
+    new Mot(['manger'],'たべる',basic_score),
+    new Mot(['oeuf'],'たまご',basic_score),
+    new Mot(['qui'],'だれ',basic_score),
+    new Mot(['quelqu\'un'],'だれか',basic_score),
+    new Mot(['anniversaire'],'たんじょうび',basic_score),
+    new Mot(['petit'],'ちいさい',basic_score),
+    new Mot(['métro'],'ちかてつ',basic_score),
+    new Mot(['carte','plan'],'ちず',basic_score),
+    new Mot(['père'],'ちち',basic_score),
+    new Mot(['marron'],'ちゃいろ',basic_score),
+    new Mot(['utiliser'],'つかう',basic_score),
+    new Mot(['suivant'],'つぎ',basic_score),
+    new Mot(['bureau'],'つくえ',basic_score),
+    new Mot(['fabriquer','créer'],'つくる',basic_score),
+    new Mot(['allumer'],'つける',basic_score),
+    new Mot(['froid','glacial'],'つめたい',basic_score),
+    new Mot(['fort','puissant'],'つよい',basic_score),
+    new Mot(['main'],'て',basic_score),
+    new Mot(['table'],'テーブル',basic_score),
+    new Mot(['sortir','partir'],'でかける',basic_score),
+    new Mot(['lettre'],'てがみ',basic_score),
+    new Mot(['sortie'],'でぐち',basic_score),
+    new Mot(['test'],'テスト',basic_score),
+    new Mot(['mais'],'でも',basic_score),
+    new Mot(['télévision','télé'],'テレビ',basic_score),
+    new Mot(['météo','temps'],'てんき',basic_score),
+    new Mot(['électricité'],'でんき',basic_score),
+    new Mot(['train'],'でんしゃ',basic_score),
+    new Mot(['téléphone'],'でんわ',basic_score),
+    new Mot(['porte'],'ドア',basic_score),
+    new Mot(['toilettes'],'トイレ',basic_score),
+    new Mot(['pourquoi'],'どうして',basic_score),
+    new Mot(['animal'],'どうぶつ',basic_score),
+    new Mot(['loin','éloigné'],'とおい',basic_score),
+    new Mot(['montre','horloge'],'とけい',basic_score),
+    new Mot(['où'],'どこ',basic_score),
+    new Mot(['lieu','endroit'],'ところ',basic_score),
+    new Mot(['bibliothèque'],'としょかん',basic_score),
+    new Mot(['vraiment','très'],'とても',basic_score),
+    new Mot(['voisin','proche'],'となり',basic_score),
+    new Mot(['sauter','voler'],'とぶ',basic_score),
+    new Mot(['ami'],'ともだち',basic_score),
+    new Mot(['samedi'],'どようび',basic_score),
+    new Mot(['oiseau'],'とり',basic_score),
+    new Mot(['prendre','photographier'],'とる',basic_score),
+    new Mot(['lequel','laquelle'],'どれ',basic_score),
+    new Mot(['couteau'],'ナイフ',basic_score),
+    new Mot(['intérieur'],'なか',basic_score),
+    new Mot(['long'],'ながい',basic_score),
     new Mot(['chat'],'ねこ',basic_score),
     new Mot(['souris'],'ねずみ',basic_score)
 ]
