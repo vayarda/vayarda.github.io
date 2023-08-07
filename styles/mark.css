@@ -1,0 +1,20 @@
+.container-mark {
+    display: none;
+    grid-template-rows: 20% 45% 20% 15%;
+    justify-items: center;
+    align-items: center;
+    width: 40%;
+    height: 70%;
+    border-radius: 10px;
+    background-color: aliceblue;
+    border: 10px solid cornflowerblue;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    color: cornflowerblue;
+    font-weight: bold;
+    text-align: center;
+    font-size: min(1em,min(4vw,3vh));
+}
+
+.mark {
+    font-size: min(3em,min(15vw,10vh));
+}

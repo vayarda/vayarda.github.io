@@ -1,0 +1,46 @@
+.container-qcm {
+    display: grid;
+    grid-template-columns: repeat(4,25%);
+    grid-template-rows: repeat(2,50%);
+    height: 100%;
+    width: 100%;
+    justify-items: center;
+    align-items: center;
+}
+
+.button-qcm {
+    border: none;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    height: 80%;
+    width: 90%;
+    color: aliceblue;
+    background-color: cornflowerblue;
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: min(0.8em,min(4vw,3vh));
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-weight: bold;
+    text-align: center;
+    word-break: break-all;
+}
+
+@media screen and (max-width: 600px) {
+    .container-qcm {
+        grid-template-columns: repeat(1,100%);
+        grid-template-rows: repeat(8,12.5%);
+    }
+}
+
+@media screen and (min-width: 601px) and (max-width: 800px) {
+    .container-qcm {
+        grid-template-columns: repeat(2,50%);
+        grid-template-rows: repeat(4,25%);
+    }
+}
+
+@media screen and (min-width: 801px) and (max-width: 1200px) {
+    .container-qcm {
+        grid-template-columns: repeat(3,33%);
+        grid-template-rows: repeat(3,33%);
+    }
+}
